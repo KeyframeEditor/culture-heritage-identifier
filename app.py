@@ -12,10 +12,16 @@ import flask
 from flask import Flask, render_template, request
 from keras.applications.imagenet_utils import preprocess_input, decode_predictions
 from keras.preprocessing import image
+import os
+# from tensorflow import keras
 
 app = Flask(__name__)
 
-model = load_model('C:/Users/ASUS/Downloads/Intel Global Impact/Cultural AI/Flask/batik/ARCHIVE ALL TRAIN/GTM epoch 200 h5 keras/keras_model.h5')
+cwd = os.getcwd()
+cwd = os.getcwd()
+model_path = os.path.join(cwd, 'model', 'keras_model.h5')
+model_path = str(model_path).replace('\\', '/')
+model = load_model(model_path)
 
 batikProp = [["Batik Bali", "Bali, Indonesia", "Bali is much inspired by the beauty of nature, culture, stories of gods, and religious ceremonies in Bali."],
 ["Batik Betawi", "Jakarta, Indonesia", "The initial motif followed the batik pattern of the northern coastal area of Java Island, which had a coastal theme. Betawi batik patterns are influenced by Chinese culture."],
