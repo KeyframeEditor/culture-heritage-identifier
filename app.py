@@ -42,11 +42,11 @@ def main():
 def input():
     # imageFile for image preview on html
     imagefile = request.files['imageFile']
-    imagefile.save("C:/Users/ASUS/Downloads/Intel Global Impact/Cultural AI/Flask/static/image.jpg")
+    imagefile.save("./static/image.jpg")
 
     # custom code
     data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
-    image = Image.open('C:/Users/ASUS/Downloads/Intel Global Impact/Cultural AI/Flask/static/image.jpg')
+    image = Image.open('./static/image.jpg')
     size = (224, 224)
     image = ImageOps.fit(image, size, Image.ANTIALIAS)
     image_array = np.asarray(image)
